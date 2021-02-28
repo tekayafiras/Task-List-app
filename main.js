@@ -22,9 +22,14 @@ form.addEventListener('submit',function(e){
     tasks.push(task);
     localStorage.setItem('tasks',JSON.stringify(tasks))
 
+    //console.log(localStorage.getItem('tasks'))
+
     input.value='';
     if(task !== ''){
         create(task);
+    }
+    else{
+        alert('add task')
     }
     
     
@@ -46,13 +51,17 @@ function create(script){
     ul.appendChild(newLi)
 }
 
+/*remove list item */
 
 body.addEventListener('click',function(e){
 
     if(e.target.classList.contains('remove')){
+        if(confirm(alert('are you sure !!')))
         e.target.parentElement.remove();
     }
 });
+
+/*remove all */
 
 clear.addEventListener('click',function(e){
     e.preventDefault();
@@ -64,8 +73,22 @@ clear.addEventListener('click',function(e){
     
 });
 
+/*filter task */
+const secondInput = document.querySelector('.second-input');
 
+secondInput.addEventListener('keyup',function(e){
+    const text = e.target.value.toLowerCase();
+
+    document.querySelectorAll('li').forEach(function(current){
+        if(current.firstChild.textContent.toLowerCase().indexOf(text) != -1){
+            current.style.display = 'flex';
+        }else{
+            current.style.display = 'none';
+        }
+        
+    })
 
    
+})
 
 

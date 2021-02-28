@@ -4,10 +4,10 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-
 body{
     max-width: 500px;
     margin: 1rem auto;
+    background: rgb(252, 252, 252);
 }
 body *{
     padding: .5rem 0;
@@ -78,6 +78,7 @@ form label span{
     width: 100%;
     padding: 1rem;
     margin: 1rem;
+    box-shadow:2px 2px 2px 2px rgb(235, 231, 231);
 }
 .bottom a{
     color: white;
@@ -120,11 +121,16 @@ i:hover{
 li,span{
     color: rgb(97, 97, 97);
 }
-
-
-
-.height{
-    background: #333;
-
+.ss{
+    position: relative;
 }
-
+.second-label{
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .35s ease;
+}
+.second-label span{
+    color: rgb(107, 168, 107);
+}
