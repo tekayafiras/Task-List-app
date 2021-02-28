@@ -21,8 +21,9 @@ form.addEventListener('submit',function(e){
     }
     tasks.push(task);
     localStorage.setItem('tasks',JSON.stringify(tasks))
-
-    //console.log(localStorage.getItem('tasks'))
+    const data = localStorage.getItem('tasks');
+    console.log(data)
+    
 
     input.value='';
     if(task !== ''){
@@ -33,8 +34,8 @@ form.addEventListener('submit',function(e){
     }
     
     
-    
 })
+
 
 /* create new element */
 
@@ -59,19 +60,45 @@ body.addEventListener('click',function(e){
         if(confirm(alert('are you sure !!')))
         e.target.parentElement.remove();
     }
+
+    /*remove from local storage only removed from UI*/
+
+    removeTaskFromLocalStorage(e.target.parentElement);
+
 });
+
+function removeTaskFromLocalStorage(taskItem){
+    
+    if(localStorage.getItem('tasks') === null){
+        tasks =[];
+    }else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+
+    }
+    tasks.forEach(function(task,index){
+        if(taskItem.textContent === task){
+            tasks.splice(index, 1)
+        }
+    });
+    localStorage.setItem('tasks',JSON.stringify(tasks))
+}
+
 
 /*remove all */
 
 clear.addEventListener('click',function(e){
     e.preventDefault();
-    const li = document.querySelectorAll('li')
-    
+    const li = document.querySelectorAll('li');
+    localStorage.clear();
     li.forEach(function(current){
         current.remove();
     })
+
     
+
 });
+
+
 
 /*filter task */
 const secondInput = document.querySelector('.second-input');
@@ -91,4 +118,26 @@ secondInput.addEventListener('keyup',function(e){
    
 })
 
+/* get task from local storage when loaded */ 
+
+document.addEventListener('DOMContentLoaded',function(e){
+    if(localStorage.getItem('tasks') === null){
+        tasks =[];
+    }else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+
+    }
+    tasks.forEach(function(task){
+        const newLi = document.createElement('li');
+        const newP = document.createElement('p');
+        const newI = document.createElement('i');
+
+        newI.className = 'fas fa-times remove';
+        newP.innerHTML=`${task}`;
+
+        newLi.appendChild(newP)
+        newLi.appendChild(newI)
+        ul.appendChild(newLi)
+    })
+})
 
