@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    max-width: 500px;
+    margin: 1rem auto;
+}
+body *{
+    padding: .5rem 0;
+}
+li{
+    list-style: none;
+    cursor: pointer;
+}
+h1,h2{
+    font-weight: 400;
+}
+input{
+    border: none;
+}
+.top{
+    padding: 0 .5rem;
+}
+.top,.bottom{
+    padding: 1rem 0;
+}
+
+input[type='submit']{
+    background: rgb(20, 124, 143);
+    color: white;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    transition: all .4s ease;
+    border-radius: 2px;
+}
+input[type='submit']:hover{
+    color: rgb(20, 124, 143);
+    background: white;
+    border: 1px dotted rgb(20, 124, 143);
+}
+
+input[type='text']{
+    margin: 1.3rem 0;
+    width: 100%;
+    padding: .5rem .2rem;
+    outline: none;
+    font-size: 1rem;
+    color: rgb(77, 77, 77);
+    border-bottom: 1px solid rgb(20, 124, 143);
+}
+input[type='text']:focus{
+    border-bottom: 2px solid rgb(20, 124, 143);
+}
+input[type='text']:focus + label{
+    transform: translateY(-120%);
+    
+}
+form[action='php']{
+    position: relative;
+}
+form label{
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    left: 0;
+    cursor: text;
+    transition: all .3s ease;
+}
+form label span{
+    font-size: .9rem;
+}
+.container{
+    border: 1px  solid rgb(223, 223, 223);
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem;
+}
+.bottom a{
+    color: white;
+    background: black;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    font-size: .9rem;
+    display: inline-block;
+    margin-top: 1rem;
+    margin-left: .5rem;
+    transition: all .4s ease;
+    border-radius: 2px;
+}
+.bottom a:hover{
+    color: rgb(66, 65, 65);
+    background: transparent;
+    border: 1px dotted rgb(65, 65, 65);
+}
+ul{
+    padding: 0 .5rem;
+}
+ul li{
+    border: 1px solid rgb(224, 224, 224);
+    padding: .1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    transition: all .5s ease;
+    
+}
+li:hover{
+    background: rgb(238, 238, 238);
+}
+i{
+    color: orangered;
+    transition: all .4s ease;
+}
+i:hover{
+    opacity: .5;
+}
+li,span{
+    color: rgb(97, 97, 97);
+}
+
+
+
+.height{
+    background: #333;
+
+}
+
